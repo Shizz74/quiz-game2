@@ -4,3 +4,7 @@ question {
 .anvis{
   display: none;
 }
+.btnVis{
+  opacity:0.5;
+pointer-events: none;
+}

@@ -20,6 +20,7 @@ let questionNumber;
 let correctAnswer;
 let answerQue;
 let questionBTN = document.querySelector("#nextQuestion");
+const newGame = document.querySelector("#newGame")
 
 // Next question -------------------------------------------------------
 
@@ -58,8 +59,10 @@ function roundStart() {
 
 
 // Game condition-----------------------------------
+document.getElementById("nextQuestion").addEventListener("click", function() {
+  questionBTN.innerHTML = " Następne ";
 if (life > 1) {
-  document.getElementById("nextQuestion").addEventListener("click", function() {
+  
     
     
     console.log("A= "+a);
@@ -73,13 +76,24 @@ if (life > 1) {
       document.getElementById("answers").innerHTML = " Zdobyłeś: " + score +"pkt";
       document.getElementById("score").innerHTML = " ";
       document.getElementById("question").innerHTML = " ";
+      newGame.classList.remove("anvis");
+      questionBTN.classList.add("anvis");
     }
     let ans = document.querySelectorAll('.ans');
 // Checking answer --------------------------------------
+
 for(let i=0;i<ans.length;i++){
+  
   ans[i].addEventListener('click',function(){
+    //for(let j=0;j<ans.length;j++){
+     // ans[j].disable = true;
+    //}
+
     answerQue=this.value;
     console.log(answerQue);
+    
+    //.disabled = true; //blokuje
+    
     if ( answerQue == correctAnswer){
       console.log("correct");
       score +=1;
@@ -95,10 +109,12 @@ for(let i=0;i<ans.length;i++){
       this.classList.add("btn-danger");
       questionBTN.classList.remove("anvis");
     }
+  
   });
 }
 
-  });
+
+  
 
 } else {
   document.getElementById("life").innerHTML = "Życia: " + life;
@@ -106,8 +122,10 @@ for(let i=0;i<ans.length;i++){
   document.getElementById("answers").innerHTML = " Zdobyłeś: " + score +"pkt"
   document.getElementById("score").innerHTML = " ";
   document.getElementById("question").innerHTML = " ";
+  newGame.classList.remove("anvis");
+  questionBTN.classList.add("anvis");
 }
-
+});
 
 
 
@@ -131,5 +149,15 @@ document.getElementById("answers").innerHTML =
         que[questionNumber-1][4] +
         "</button>";
       correctAnswer = que[questionNumber-1][5];
-      que.splice(indexNr,1);*/
+      que.splice(indexNr,1);
+      
+      
+      
+      
+      
+      let list = document.querySelector('#answers');
+    let btnbtn=list.querySelectorAll(button);
+    for (let i = 0; i<btnbtn.length; i++){
+      btnbtn[i].setAttribute("disable", "center");
+    }*/
       
