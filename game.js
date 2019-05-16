@@ -52,6 +52,7 @@ function roundStart() {
         '<button type="button" class="btn btn-outline-dark ans" value="' + que[questionNumber-1][4] + '">' +
         que[questionNumber-1][4] +
         "</button>";
+        document.querySelector(".time").innerHTML = '<div class="timeColor"></div>';
       correctAnswer = que[questionNumber-1][5];
       questionBTN.classList.add("anvis");
       que.splice(indexNr,1);
@@ -110,6 +111,9 @@ for(let i=0;i<ans.length;i++){
       this.classList.add("btn-danger");
       questionBTN.classList.remove("anvis");
     }
+    setTimeout(function() {
+      roundStart();
+  }, 2000);
   });
 }
 
@@ -129,8 +133,9 @@ for(let i=0;i<ans.length;i++){
 });
 
 
-
-
+// Time ------------------------------
+let time = new Date();
+time.getSeconds();
 
 
 
