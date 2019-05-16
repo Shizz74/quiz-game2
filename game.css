@@ -4,7 +4,23 @@ question {
 .anvis{
   display: none;
 }
-.btnVis{
-  opacity:0.5;
-pointer-events: none;
+
+.disable:disabled{
+  display: block;
+}
+.card-body {
+  height: 17rem;
+}
+.card-header,
+.card-footer{
+  height: 8rem;
+}
+.card{
+  margin:0 1rem;
+}
+.centerH{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

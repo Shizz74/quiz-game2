@@ -20,7 +20,7 @@ let questionNumber;
 let correctAnswer;
 let answerQue;
 let questionBTN = document.querySelector("#nextQuestion");
-const newGame = document.querySelector("#newGame")
+const newGame = document.querySelector("#newGame");
 
 // Next question -------------------------------------------------------
 
@@ -61,7 +61,8 @@ function roundStart() {
 // Game condition-----------------------------------
 document.getElementById("nextQuestion").addEventListener("click", function() {
   questionBTN.innerHTML = " Następne ";
-if (life > 1) {
+  let introText = document.querySelector(".intro-text").style.display = "none";
+if (life > 0) {
   
     
     
@@ -83,12 +84,12 @@ if (life > 1) {
 // Checking answer --------------------------------------
 
 for(let i=0;i<ans.length;i++){
-  
   ans[i].addEventListener('click',function(){
-    //for(let j=0;j<ans.length;j++){
-     // ans[j].disable = true;
-    //}
-
+    //ans[i].style.display = "none";
+    for(i=0;i<ans.length;i++){
+     ans[i].disabled = true;
+    }
+    
     answerQue=this.value;
     console.log(answerQue);
     
@@ -109,9 +110,9 @@ for(let i=0;i<ans.length;i++){
       this.classList.add("btn-danger");
       questionBTN.classList.remove("anvis");
     }
-  
   });
 }
+
 
 
   
