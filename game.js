@@ -86,7 +86,6 @@ if (life > 0) {
 
 for(let i=0;i<ans.length;i++){
   ans[i].addEventListener('click',function(){
-    //ans[i].style.display = "none";
     for(i=0;i<ans.length;i++){
      ans[i].disabled = true;
     }
@@ -111,9 +110,6 @@ for(let i=0;i<ans.length;i++){
       this.classList.add("btn-danger");
       questionBTN.classList.remove("anvis");
     }
-    setTimeout(function() {
-      roundStart();
-  }, 2000);
   });
 }
 
