@@ -14,4 +14,25 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+question {
+  margin-bottom: 2rem;
+}
+.anvis{
+  display: none;
+}
+
+.disable:disabled{
+  display: block;
+}
+.card-body {
+  height: 17rem;
+}
+.card-header,
+.card-footer{
+  height: 8rem;
+}
+.card{
+  margin:0 1rem;
 }

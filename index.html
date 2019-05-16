@@ -9,21 +9,36 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	 crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 
 	<title>Quiz</title>
 </head>
 
 <body class="flex-center">
-	<div class="card shadow-sm text-center col-md-7">
-		<div class="card-header align-middle">
-			<h4>Quiz</h4>
+	<div class="card shadow-sm text-center col-sm-7">
+		<div class="card-header flex-center">
+				<h4>Quiz</h4>
+			<div id="counter"></div>
 		</div>
-		<div class="card-body">
-			<p class="card-text mt-3">Prosta gra-quiz, gramy do 3 pomyłek. Program losuje pytanie i 4 odpowiedzi z czego
-				tylko jedna
-				jest poprawna. Kliknij Start by rozpocząć.</p>
-			<a href="game.html"><button class="btn btn-lg btn-success mt-3 start"> Start </button></a>
+		<div class="card-body flex-center">
+				<p class="card-text mt-3 intro-text">Prosta gra-quiz, gramy do 3 pomyłek. Program losuje pytanie i 4 odpowiedzi z czego
+						tylko jedna
+						jest poprawna. Kliknij Start by rozpocząć.</p>
+
+			<p class="card-text">
+				<div>
+					<p id="question"></p>
+				</div>
+			</p>
+			<div id="answers">
+
+			</div>
+		</div>
+		<div class="card-footer text-muted flex-center">
+			<div id="score" class="mb-2"></div>
+			<div id="life" class="mb-2"></div>
+			<button id="nextQuestion" class="btn btn-outline-primary">Start</button>
+			<a href="javascript:location.reload()"><button id="newGame" class="btn btn-outline-primary anvis">Nowa gra</button></a>
 		</div>
 	</div>
 
