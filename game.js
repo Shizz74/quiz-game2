@@ -84,9 +84,6 @@ document.getElementById("nextQuestion").addEventListener("click", function() {
   let introText = document.querySelector(".intro-text").style.display = "none";
 if (life > 0) {
   
-    if (a==1 || life == 1 ){
-      questionBTN.innerHTML = " Koniec ";
-    }
     if (a > 0){
       roundStart();
       countDown();
@@ -123,8 +120,14 @@ for(let i=0;i<ans.length;i++){
       this.classList.remove("btn-outline-dark");
       this.classList.add("btn-danger");
       questionBTN.classList.remove("anvis");
+      if (life == 0){
+        questionBTN.innerHTML = " Koniec ";
+      }
     }
   });
+}
+if (a==1){
+  questionBTN.innerHTML = " Koniec ";
 }
 }
 else {
