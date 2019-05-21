@@ -19,6 +19,12 @@ html {
 .question {
   margin-bottom: 2rem;
 }
+#answers{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
 .anvis{
   display: none;
 }
@@ -27,14 +33,16 @@ html {
   display: block;
 }
 .card-body {
-  height: 17rem;
+  height: auto;
 }
 .card-header,
 .card-footer{
-  height: 8rem;
+  min-height: 8rem;
+  width: 100%;
+  height: auto;
 }
 .card{
-  margin:0 1rem;
+  max-height: 100vh;
 }
 /* Time progressbar */ 
 .time{

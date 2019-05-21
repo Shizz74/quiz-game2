@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function() {
 // Question list -------------------------------------
 let que = [];
 que[0] = ["Która liczba jest większa od 3?", "1", "2", "3", "4", "4"];
@@ -11,6 +12,9 @@ que[7] = ["Która liczba jest równa 4?", "1", "2", "3", "4", "4"];
 que[8] = ["Która liczba jest równa 10?", "10", "2", "3", "4", "10"];
 que[9] = ["Która liczba jest równa 9", "1", "2", "9", "4", "9"];
 que[10] = ["Która liczba jest równa 5", "1", "2", "3", "5", "5"];
+que[11] = ["Który szczyt jest wyższy?", "Czomolungma", "K2", "Kangczengdzonga", "Lhotse", "Czomolungma"];
+que[12] = ["Jak nazywał się 3 prezydent Stanów Zjednoczonych?", "Abraham Lincoln", "Benjamin Franklin", "Thomas Jefferson", "George Washington", "Thomas Jefferson"];
+
 
 // Variables----------------------------------------
 let counter = 0;
@@ -24,13 +28,13 @@ let questionBTN = document.querySelector("#nextQuestion");
 const newGame = document.querySelector("#newGame");
 let ans = document.querySelectorAll('.ans');
 let timeOut = document.querySelector('.timeOut');
-let interwal;
+let timeRepeat;
 let timeBar = document.querySelector(".time2");
 
 //Time ----------------------------
 function countDown(){ 
     let time = 5;
-  interwal = setInterval(function() {
+    timeRepeat = setInterval(function() {
    if (time >= 1){
     time -= 1;
    } 
@@ -39,7 +43,7 @@ function countDown(){
     timeOut.classList.remove('anvis');
     counter+=1;
     life-=1;
-    clearInterval(interwal);
+    clearInterval(timeRepeat);
    }
  }, 1000);
 };
@@ -59,16 +63,19 @@ function roundStart() {
       document.getElementById("counter").innerHTML = "Pytanie: " + counter;
       document.getElementById("question").innerHTML = que[questionNumber-1][0];
       document.getElementById("answers").innerHTML =
-        '<button type="button" class="btn btn-outline-dark mr-2 ans" value="' + que[questionNumber-1][1] + '">' +
+      '<div class="container">'  +
+      '<div class="row justify-content-around">' +
+        '<button type="button" class="btn btn-outline-dark mb-2 ans col-lg-5" value="' + que[questionNumber-1][1] + '">' +
         que[questionNumber-1][1] +
         "</button>" +
-        '<button type="button" class="btn btn-outline-dark mr-2 ans" value="' + que[questionNumber-1][2] + '">' +
+        '<button type="button" class="btn btn-outline-dark mb-2 ans col-lg-5" value="' + que[questionNumber-1][2] + '">' +
         que[questionNumber-1][2] +
-        "</button>" +
-        '<button type="button" class="btn btn-outline-dark mr-2 ans" value="' + que[questionNumber-1][3] + '">' +
+        "</button></div>" +
+        '<div class="row justify-content-around">' +
+        '<button type="button" class="btn btn-outline-dark mb-2 ans col-lg-5" value="' + que[questionNumber-1][3] + '">' +
         que[questionNumber-1][3] +
         "</button>" +
-        '<button type="button" class="btn btn-outline-dark ans" value="' + que[questionNumber-1][4] + '">' +
+        '<button type="button" class="btn btn-outline-dark mb-2 ans col-lg-5" value="' + que[questionNumber-1][4] + '">' +
         que[questionNumber-1][4] +
         "</button>";
         document.querySelector(".time").innerHTML = '<div class="timeColor"></div>';
@@ -103,7 +110,7 @@ if (life > 0) {
 // Checking answer --------------------------------------
 for(let i=0;i<ans.length;i++){
   ans[i].addEventListener('click',function(){
-    clearInterval(interwal);
+    clearInterval(timeRepeat);
     timeBar.classList.add("anvis");
     for(i=0;i<ans.length;i++){
      ans[i].disabled = true;
@@ -141,4 +148,5 @@ else {
   timeOut.classList.add('anvis');
   timeBar.classList.add("anvis");
 }
+});
 });
