@@ -11,7 +11,7 @@ que[7] = ["Która liczba jest równa 4?", "1", "2", "3", "4", "4"];
 que[8] = ["Która liczba jest równa 10?", "10", "2", "3", "4", "10"];
 que[9] = ["Która liczba jest równa 9", "1", "2", "9", "4", "9"];
 que[10] = ["Która liczba jest równa 5", "1", "2", "3", "5", "5"];
-
+// variables----------------------------------------
 let counter = 0;
 let score = 0;
 let life = 3;
@@ -21,14 +21,40 @@ let correctAnswer;
 let answerQue;
 let questionBTN = document.querySelector("#nextQuestion");
 const newGame = document.querySelector("#newGame");
+let ans = document.querySelectorAll('.ans');
+let timeOut = document.querySelector('.timeOut');
+let interwal;
+let timeBar = document.querySelector(".time2");
 
-// Next question -------------------------------------------------------
+//Time ----------------------------
+function countDown(){ 
+    let time = 5;
+  interwal = setInterval(function() {
+   if (time >= 1){
+    time -= 1;
+     console.log(time);
+   } 
+   else {
+    questionBTN.classList.remove("anvis");
+    timeOut.classList.remove('anvis');
+    counter+=1;
+    life-=1;
+    clearInterval(interwal);
+   }
+ }, 1000);
+};
+
+// Next question/round -------------------------------------------------------
 
 function roundStart() {
+  questionBTN.classList.add("anvis");
+  timeOut.classList.add('anvis');
+  timeBar.classList.remove("anvis");
+
   questionNumber = 1 + Math.floor(Math.random() * a);
       let indexNr = questionNumber - 1; 
       console.log("nr index " + indexNr);
-      //let index = que.indexOf(questionNumber);
+      let index = que.indexOf(questionNumber);
       a-=1;
       counter += 1; 
       
@@ -71,6 +97,7 @@ if (life > 0) {
 
     if (a > 0){
       roundStart();
+      countDown();
     }
     else {
       document.getElementById("life").innerHTML = "Życia: " + life;
@@ -80,12 +107,15 @@ if (life > 0) {
       document.getElementById("question").innerHTML = " ";
       newGame.classList.remove("anvis");
       questionBTN.classList.add("anvis");
+      timeOut.classList.add("anvis");
     }
-    let ans = document.querySelectorAll('.ans');
+    ans = document.querySelectorAll('.ans');
 // Checking answer --------------------------------------
 
 for(let i=0;i<ans.length;i++){
   ans[i].addEventListener('click',function(){
+    clearInterval(interwal);
+    timeBar.classList.add("anvis");
     for(i=0;i<ans.length;i++){
      ans[i].disabled = true;
     }
@@ -129,9 +159,7 @@ for(let i=0;i<ans.length;i++){
 });
 
 
-// Time ------------------------------
-let time = new Date();
-time.getSeconds();
+
 
 
 
