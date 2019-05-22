@@ -1,20 +1,26 @@
 document.addEventListener("DOMContentLoaded", function() {
 // Question list -------------------------------------
 let que = [];
-que[0] = ["Która liczba jest większa od 3?", "1", "2", "3", "4", "4"];
-que[1] = ["Która liczba jest równa 2?", "1", "2", "3", "4", "2"];
-que[2] = ["Która liczba jest mniejsza od 2?", "1", "2", "3", "4", "1"];
-que[3] = ["Która liczba jest większa od 4?", "2", "3", "4", "5", "5"];
-que[4] = ["Która liczba jest mniejsza od 3?", "2", "3", "4", "5", "2"];
-que[5] = ["Która liczba jest równa 1?", "1", "2", "3", "4", "1"];
-que[6] = ["Która liczba jest równa 3?", "1", "2", "3", "4", "3"];
-que[7] = ["Która liczba jest równa 4?", "1", "2", "3", "4", "4"];
-que[8] = ["Która liczba jest równa 10?", "10", "2", "3", "4", "10"];
-que[9] = ["Która liczba jest równa 9", "1", "2", "9", "4", "9"];
-que[10] = ["Która liczba jest równa 5", "1", "2", "3", "5", "5"];
-que[11] = ["Który szczyt jest wyższy?", "Czomolungma", "K2", "Kangczengdzonga", "Lhotse", "Czomolungma"];
+que[0] = ["Ile państw znajduje się w Europie?", "109", "46", "47", "34", "46"];
+que[1] = ["Rok wybuchu I wojny światowej", "1914", "1912", "1939", "1904", "1914"];
+que[2] = ["Najdłuższa rzeka Azji to?", "Jangcy", "Huang He", "Mekong", "Lena", "Jangcy"];
+que[3] = ["Jak się nazywa mieszkańka Gwadelupy?", "Gwadelupka", "Gwadelupkini", "Gwadelka", "Gwaludczyni", "Gwadelupka"];
+que[4] = ["W którym roku powstał film 'Władca Pierścieni: Druzyna Pierścienia?'", "2001", "2011", "2000", "2005", "2001"];
+que[5] = ["Kto namalował słynny obraz 'Mona Lisa'", "Leonardo da Vinci", "Michał Anioł", "Donatello", "Rafael Santi", "Leonardo da Vinci"];
+que[6] = ["Ostatni władca Rzeczypospolitej Obojga Narodów to?", "Stanisław August Poniatowski", "Mieszko II Lambert", "August III Sas", "Jan III Sobieski", "Stanisław August Poniatowski"];
+que[7] = ["W jakich latach budowano kolej Transsyberyjską?", "1891–1916", "1899–1944", "1891–1900", "1887–1916", "1891–1916"];
+que[8] = ["Jak nazywa sie pierwszy samochód w kosmosie?", "Tesla Roadster", "Spyker C8 Spyder", "EF7 Vision Gran Turismo Concept", "Alpine A110 Berlinette", "Tesla Roadster"];
+que[9] = ["Krzem to?", "Metal", "Półmetal", "Gaz szlachetny", "Ciecz", "Półmetal"];
+que[10] = ["Jak nazywa się najstarsze drzewo w Polsce", "Cis Henrykowski", "Dąb Bartek", "Sosna Kozłowskiego", "Grab Mieszka", "Cis Henrykowski"];
+que[11] = ["Który szczyt jest najwyższy?", "Czomolungma", "K2", "Kangczengdzonga", "Lhotse", "Czomolungma"];
 que[12] = ["Jak nazywał się 3 prezydent Stanów Zjednoczonych?", "Abraham Lincoln", "Benjamin Franklin", "Thomas Jefferson", "George Washington", "Thomas Jefferson"];
-
+que[13] = ["Kto wyreżyserował film Rocky 3?", "Sylvester Stallone", "Ben Affleck", "Tom Brady", "Bracia Wachowscy", "Sylvester Stallone"];
+que[14] = ["Pierwsza fotografia powstała w roku:", "1826", "1912", "1802", "1893", "1826"];
+que[15] = ["Lądowanie Apollo 11, na księżycu nastąpiło dnia:", "20 lipca 1969", "5 czerwca 1969", "20 czerwca 1969", "5 lipca 1969", "20 lipca 1969"];
+que[16] = ["Piatą częścią filowej serii Harre'go Potter'a ze światową premierą 28 czerwca 2007 roku, jest?", "Harry Potter i Zakon Feniksa", "Harry Potter i Czara Ognia", "Harry Potter i Kamień Filozoficzny", "Harry Potter i więzień Azkabanu", "2Harry Potter i Zakon Feniksa"];
+que[17] = ["1 listopada 1993 roku powstała?", "Unia Europejska", "Organizacja Traktatu Północnoatlantyckiego", "Ukraina", "Słowacja", "Unia Europejska"];
+que[18] = ["'Can't Help Falling In Love' to piosenka jakiego wykonawcy?", "Elvis Presley", "Dawid Bowie", "Michael Jackson", "James Brown", "Elvis Presley"];
+que[18] = ["W którym roku Japonia zaatakowała Pearl Harbor?", "1941", "1940", "1942", "1939", "1941"];
 
 // Variables----------------------------------------
 let counter = 0;
@@ -66,11 +72,6 @@ function roundStart() {
       let indexNr = questionNumber - 1; 
       let index = que.indexOf(questionNumber);
       a-=1;
-      counter += 1; 
-      ///answerOrder.sort(function() { 
-       // Math.random() - 0.5 ;
-       // console.log(answerOrder);
-    //  });
       document.querySelector("#score").innerHTML = "Punkty: " + score;
       document.querySelector("#life").innerHTML = "Życia: " + life;
       document.querySelector("#counter").innerHTML = "Pytanie: " + counter;
@@ -105,6 +106,7 @@ document.querySelector("#nextQuestion").addEventListener("click", function() {
 if (life > 0) {
   
     if (a > 0){
+      counter += 1;
       shuffleArray(answerOrder);
       roundStart();
       countDown();
