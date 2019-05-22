@@ -20,7 +20,7 @@ que[15] = ["Lądowanie Apollo 11, na księżycu nastąpiło dnia:", "20 lipca 19
 que[16] = ["Piatą częścią filowej serii Harre'go Potter'a ze światową premierą 28 czerwca 2007 roku, jest?", "Harry Potter i Zakon Feniksa", "Harry Potter i Czara Ognia", "Harry Potter i Kamień Filozoficzny", "Harry Potter i więzień Azkabanu", "2Harry Potter i Zakon Feniksa"];
 que[17] = ["1 listopada 1993 roku powstała?", "Unia Europejska", "Organizacja Traktatu Północnoatlantyckiego", "Ukraina", "Słowacja", "Unia Europejska"];
 que[18] = ["'Can't Help Falling In Love' to piosenka jakiego wykonawcy?", "Elvis Presley", "Dawid Bowie", "Michael Jackson", "James Brown", "Elvis Presley"];
-que[18] = ["W którym roku Japonia zaatakowała Pearl Harbor?", "1941", "1940", "1942", "1939", "1941"];
+que[19] = ["W którym roku Japonia zaatakowała Pearl Harbor?", "1941", "1940", "1942", "1939", "1941"];
 
 // Variables----------------------------------------
 let counter = 0;
