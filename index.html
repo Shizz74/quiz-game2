@@ -15,36 +15,45 @@
 </head>
 
 <body class="flex-center">
-	<div class="card shadow-sm col-sm-7">
-		<div class="card-header flex-center">
-				<h4>Quiz</h4>
-			<div id="counter"></div>
-		</div>
-		<div class="card-body flex-center">
-				<p class="card-text mt-3 intro-text">Prosta gra-quiz, gramy do 3 pomyłek. Program losuje pytanie i 4 odpowiedzi z czego
-						tylko jedna
-						jest poprawna. Kliknij Start by rozpocząć.</p>
-
-			<p class="card-text">
-				<div>
-					<p id="question"></p>
+	<div class="container">
+		<div class="row flex-center">
+			<div class="game rounded shadow-sm col-sm-7">
+				<div class="game-header border-bottom flex-center">
+						<h4>Quiz</h4>
+					<div id="counter"></div>
 				</div>
-			</p>
-			<div id="answers" class="align-self-center">
-
-			</div>
-			<div class="time2 mt-5 mb-3 anvis">
-				<div class="time">
-				
+				<div class="game-body flex-center mb-4">
+						<p class="card-text mt-3 intro-text">Prosta gra-quiz, gramy do 3 pomyłek. Program losuje pytanie i 4 odpowiedzi z czego
+								tylko jedna
+								jest poprawna. Kliknij Start by rozpocząć.</p>
+		
+					<p class="game-text">
+						<div>
+							<p id="question"></p>
+						</div>
+					</p>
+					<div id="answers" class="align-self-center">
+		
+					</div>
+					<div class="hidden-world1 flex-center">
+						<div class="time2 mt-5 mb-3 anvis">
+							<div class="time">
+							
+							</div>
+						</div>
+						<div class="timeOut anvis"> Time Out!</div>
+					</div>
+				</div>
+				<div class="game-footer text-muted flex-center mb-3 border-top">
+					<div id="score" class="mt-3 mb-2"></div>
+					<div id="life" class="mb-2"></div>
+					<div class="hidden-world">
+						<button id="nextQuestion" class="btn btn-outline-primary">Start</button>
+					</div>
+					
+					<a href="javascript:location.reload()"><button id="newGame" class="btn btn-outline-primary anvis">Nowa gra</button></a>
 				</div>
 			</div>
-			<div class="timeOut anvis"> Time Out!</div>
-		</div>
-		<div class="card-footer text-muted flex-center">
-			<div id="score" class="mb-2"></div>
-			<div id="life" class="mb-2"></div>
-			<button id="nextQuestion" class="btn btn-outline-primary">Start</button>
-			<a href="javascript:location.reload()"><button id="newGame" class="btn btn-outline-primary anvis">Nowa gra</button></a>
 		</div>
 	</div>
 

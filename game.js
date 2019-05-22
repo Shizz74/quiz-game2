@@ -43,11 +43,20 @@ function countDown(){
     timeOut.classList.remove('anvis');
     counter+=1;
     life-=1;
+    for(i=0;i<ans.length;i++){
+      ans[i].disabled = true;
+     }
     clearInterval(timeRepeat);
    }
  }, 1000);
 };
-
+let answerOrder = [1, 2, 3, 4];
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 // Next question/round -------------------------------------------------------
 function roundStart() {
   questionBTN.classList.add("anvis");
@@ -58,25 +67,29 @@ function roundStart() {
       let index = que.indexOf(questionNumber);
       a-=1;
       counter += 1; 
-      document.getElementById("score").innerHTML = "Punkty: " + score;
-      document.getElementById("life").innerHTML = "Życia: " + life;
-      document.getElementById("counter").innerHTML = "Pytanie: " + counter;
-      document.getElementById("question").innerHTML = que[questionNumber-1][0];
-      document.getElementById("answers").innerHTML =
+      ///answerOrder.sort(function() { 
+       // Math.random() - 0.5 ;
+       // console.log(answerOrder);
+    //  });
+      document.querySelector("#score").innerHTML = "Punkty: " + score;
+      document.querySelector("#life").innerHTML = "Życia: " + life;
+      document.querySelector("#counter").innerHTML = "Pytanie: " + counter;
+      document.querySelector("#question").innerHTML = que[questionNumber-1][0];
+      document.querySelector("#answers").innerHTML =
       '<div class="container">'  +
       '<div class="row justify-content-around">' +
-        '<button type="button" class="btn btn-outline-dark mb-2 ans col-lg-5" value="' + que[questionNumber-1][1] + '">' +
-        que[questionNumber-1][1] +
+        '<button type="button" class="btn btn-outline-dark mb-2 ans col-lg-5" value="' + que[questionNumber-1][answerOrder[0]] + '">' +
+        que[questionNumber-1][answerOrder[0]] +
         "</button>" +
-        '<button type="button" class="btn btn-outline-dark mb-2 ans col-lg-5" value="' + que[questionNumber-1][2] + '">' +
-        que[questionNumber-1][2] +
+        '<button type="button" class="btn btn-outline-dark mb-2 ans col-lg-5" value="' + que[questionNumber-1][answerOrder[1]] + '">' +
+        que[questionNumber-1][answerOrder[1]] +
         "</button></div>" +
         '<div class="row justify-content-around">' +
-        '<button type="button" class="btn btn-outline-dark mb-2 ans col-lg-5" value="' + que[questionNumber-1][3] + '">' +
-        que[questionNumber-1][3] +
+        '<button type="button" class="btn btn-outline-dark mb-2 ans col-lg-5" value="' + que[questionNumber-1][answerOrder[2]] + '">' +
+        que[questionNumber-1][answerOrder[2]] +
         "</button>" +
-        '<button type="button" class="btn btn-outline-dark mb-2 ans col-lg-5" value="' + que[questionNumber-1][4] + '">' +
-        que[questionNumber-1][4] +
+        '<button type="button" class="btn btn-outline-dark mb-2 ans col-lg-5" value="' + que[questionNumber-1][answerOrder[3]] + '">' +
+        que[questionNumber-1][answerOrder[3]] +
         "</button>";
         document.querySelector(".time").innerHTML = '<div class="timeColor"></div>';
       correctAnswer = que[questionNumber-1][5];
@@ -86,21 +99,22 @@ function roundStart() {
 
 
 // Game condition-----------------------------------
-document.getElementById("nextQuestion").addEventListener("click", function() {
+document.querySelector("#nextQuestion").addEventListener("click", function() {
   questionBTN.innerHTML = " Następne ";
   let introText = document.querySelector(".intro-text").style.display = "none";
 if (life > 0) {
   
     if (a > 0){
+      shuffleArray(answerOrder);
       roundStart();
       countDown();
     }
     else {
-      document.getElementById("life").innerHTML = "Życia: " + life;
-      document.getElementById("counter").innerHTML = "Pytanie: " + counter;
-      document.getElementById("answers").innerHTML = " Zdobyłeś: " + score +"pkt";
-      document.getElementById("score").innerHTML = " ";
-      document.getElementById("question").innerHTML = " ";
+      document.querySelector("#life").innerHTML = "Życia: " + life;
+      document.querySelector("#counter").innerHTML = "Pytanie: " + counter;
+      document.querySelector("#answers").innerHTML = " Zdobyłeś: " + score +"pkt";
+      document.querySelector("#score").innerHTML = " ";
+      document.querySelector("#question").innerHTML = " ";
       newGame.classList.remove("anvis");
       questionBTN.classList.add("anvis");
       timeOut.classList.add("anvis");
@@ -133,16 +147,16 @@ for(let i=0;i<ans.length;i++){
     }
   });
 }
-if (a==1){
+if (a==1 || life == 1){
   questionBTN.innerHTML = " Koniec ";
 }
 }
 else {
-  document.getElementById("life").innerHTML = "Życia: " + life;
-  document.getElementById("counter").innerHTML = "Pytanie: " + counter;
-  document.getElementById("answers").innerHTML = " Zdobyłeś: " + score +"pkt"
-  document.getElementById("score").innerHTML = " ";
-  document.getElementById("question").innerHTML = " ";
+  document.querySelector("#life").innerHTML = "Życia: " + life;
+  document.querySelector("#counter").innerHTML = "Pytanie: " + counter;
+  document.querySelector("#answers").innerHTML = " Zdobyłeś: " + score +"pkt"
+  document.querySelector("#score").innerHTML = " ";
+  document.querySelector("#question").innerHTML = " ";
   newGame.classList.remove("anvis");
   questionBTN.classList.add("anvis");
   timeOut.classList.add('anvis');
