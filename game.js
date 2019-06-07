@@ -39,7 +39,7 @@ let timeBar = document.querySelector(".time2");
 
 //Time ----------------------------
 function countDown(){ 
-    let time = 5;
+    let time = 9;
     timeRepeat = setInterval(function() {
    if (time >= 1){
     time -= 1;
